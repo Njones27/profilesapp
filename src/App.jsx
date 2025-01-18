@@ -11,17 +11,32 @@ import { useAuthenticator } from "@aws-amplify/ui-react";
 import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
-import outputs from "../amplify_outputs.json";
-/**
- * @type {import('aws-amplify/data').Client<import('../amplify/data/resource').Schema>}
- */
 
-Amplify.configure(outputs);
+const amplifyConfig = {
+  Auth: {
+    Cognito: {
+      userPoolId: "us-east-1_BhbopUZkM",
+      userPoolClientId: "3osd4j0ka22il4bs5kiuvd95gk",
+      identityPoolId: "us-east-1:cf4e6be3-9872-4a9b-8b43-4a1f79bd81df",
+    }
+  },
+  API: {
+    GraphQL: {
+      endpoint: "https://efjxmgawanfxvfehfgj73tlfeq.appsync-api.us-east-1.amazonaws.com/graphql",
+      region: "us-east-1",
+      defaultAuthMode: "apiKey",
+      apiKey: "da2-fj5h6n4gh5b5nmqc5iqzctodv4"
+    }
+  }
+};
+
+Amplify.configure(amplifyConfig);
 const client = generateClient({
   authMode: "userPool",
 });
 
 export default function App() {
+  // Rest of your component code remains the same
   const [userprofiles, setUserProfiles] = useState([]);
   const { signOut } = useAuthenticator((context) => [context.user]);
 
