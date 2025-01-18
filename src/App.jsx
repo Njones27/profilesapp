@@ -11,31 +11,17 @@ import { useAuthenticator } from "@aws-amplify/ui-react";
 import { Amplify } from "aws-amplify";
 import "@aws-amplify/ui-react/styles.css";
 import { generateClient } from "aws-amplify/data";
+import outputs from "../amplify_outputs.json";
+/**
+ * @type {import('aws-amplify/data').Client<import('../amplify/data/resource').Schema>}
+ */
 
-const amplifyConfig = {
-  Auth: {
-    Cognito: {
-      userPoolId: process.env.REACT_APP_USER_POOL_ID,
-      userPoolClientId: process.env.REACT_APP_USER_POOL_CLIENT_ID,
-      identityPoolId: process.env.REACT_APP_IDENTITY_POOL_ID,
-    }
-  },
-  API: {
-    GraphQL: {
-      endpoint: process.env.REACT_APP_APPSYNC_ENDPOINT,
-      region: process.env.REACT_APP_REGION,
-      defaultAuthMode: "userPool", // Consider using Cognito user pools instead of API key
-    }
-  }
-};
-
-Amplify.configure(amplifyConfig);
+Amplify.configure(outputs);
 const client = generateClient({
   authMode: "userPool",
 });
 
 export default function App() {
-  // Rest of your component code remains the same
   const [userprofiles, setUserProfiles] = useState([]);
   const { signOut } = useAuthenticator((context) => [context.user]);
 
