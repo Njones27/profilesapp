@@ -15,17 +15,16 @@ import { generateClient } from "aws-amplify/data";
 const amplifyConfig = {
   Auth: {
     Cognito: {
-      userPoolId: "us-east-1_BhbopUZkM",
-      userPoolClientId: "3osd4j0ka22il4bs5kiuvd95gk",
-      identityPoolId: "us-east-1:cf4e6be3-9872-4a9b-8b43-4a1f79bd81df",
+      userPoolId: process.env.REACT_APP_USER_POOL_ID,
+      userPoolClientId: process.env.REACT_APP_USER_POOL_CLIENT_ID,
+      identityPoolId: process.env.REACT_APP_IDENTITY_POOL_ID,
     }
   },
   API: {
     GraphQL: {
-      endpoint: "https://efjxmgawanfxvfehfgj73tlfeq.appsync-api.us-east-1.amazonaws.com/graphql",
-      region: "us-east-1",
-      defaultAuthMode: "apiKey",
-      apiKey: "da2-fj5h6n4gh5b5nmqc5iqzctodv4"
+      endpoint: process.env.REACT_APP_APPSYNC_ENDPOINT,
+      region: process.env.REACT_APP_REGION,
+      defaultAuthMode: "userPool", // Consider using Cognito user pools instead of API key
     }
   }
 };
