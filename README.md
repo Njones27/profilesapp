@@ -1,9 +1,4 @@
-# React + Vite
+Using an AWS tutorial, I successfully built my first web application that utilizes AWS Amplify to take in an email/password input, call an API and an AWS Lambda function to send a MFA code, then display the user's email. This simple, yet insightful, app reminded me of the processes I used at Amazon last summer. I learned new coding techniques in the AWS CLI and the React framework. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# profilesapp
+See my LinkedIn for a full description of the project and images. 
+LinkedIn: https://www.linkedin.com/in/njones-uk27/
